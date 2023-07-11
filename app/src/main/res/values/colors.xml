@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- general Color Schemes -->
+    <color name="red">#d10000</color>
 </resources>

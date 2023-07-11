@@ -13,7 +13,7 @@
         android:theme="@style/Theme.OnlineStore"
         tools:targetApi="31">
         <activity
-            android:name=".WelcomeActvity"
+            android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
