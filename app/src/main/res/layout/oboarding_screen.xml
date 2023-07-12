@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/onboarding_image"
+        android:src="@drawable/welcome_img"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/onboarding_textView"
+        android:layout_height="300dp"
+        android:text="Online"/>
+
+</LinearLayout>
