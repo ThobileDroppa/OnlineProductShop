@@ -59,7 +59,7 @@ public class PagerAdapter extends RecyclerView.Adapter<PagerAdapter.PagerAdapter
 
         private void setOnBoardingData(OnBoardingClass onBoardingClass){
             imageView.setImageResource(onBoardingClass.getImageView());
-            textView.setText((CharSequence) onBoardingClass.getTextView());
+            textView.setText(onBoardingClass.getTextView());
 
         }
     }
