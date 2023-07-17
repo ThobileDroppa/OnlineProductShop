@@ -1,11 +1,6 @@
 package com.example.onlinestore;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +9,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.example.onlinestore.adapters.PagerAdapter;
 import com.example.onlinestore.model.OnBoardingClass;
 
 import java.util.ArrayList;
@@ -83,9 +83,9 @@ public class WelcomeActivity extends AppCompatActivity {
            ImageView imageView = (ImageView) linearLayout.getChildAt(i);
 
            if(i==num){
-               imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.start_gradient));
+               imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_pointer));
            }else{
-               imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.next_arrow));
+               imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.inactive_pointer));
            }
 
         }
@@ -93,7 +93,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void setOnBoardingIndicator() {
 
-        ImageView[] indicators = new ImageView[pagerAdapter.getItemCount()];
+        ImageView[] indicators = new ImageView[3];
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -102,7 +102,7 @@ public class WelcomeActivity extends AppCompatActivity {
         for(int i=0;i<indicators.length;i++){
 
             indicators[i] = new ImageView(getApplicationContext());
-            indicators[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.next_arrow));
+            indicators[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.inactive_pointer));
             indicators[i].setLayoutParams(layoutParams);
             linearLayout.addView(indicators[i]);
 
@@ -124,6 +124,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             onBoardingClassList.add(welcome);
             onBoardingClassList.add(uploadItem);
+
 
     }
 }

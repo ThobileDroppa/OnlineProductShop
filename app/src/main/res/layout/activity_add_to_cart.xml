@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AddToCart">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Add Product"
+        app:subtitleTextColor="@color/white"
+        app:titleTextColor="@color/white"
+        android:backgroundTint="@color/two_blue"
+        android:paddingEnd="25dp"
+        android:elevation="20dp"
+        app:menu="@menu/home_menu"
+        android:background="@color/two_blue"
+        />
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/cart_image"/>
+
+</LinearLayout>

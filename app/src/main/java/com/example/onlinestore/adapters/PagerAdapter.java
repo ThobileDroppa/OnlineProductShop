@@ -1,15 +1,15 @@
-package com.example.onlinestore;
+package com.example.onlinestore.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.onlinestore.R;
 import com.example.onlinestore.model.OnBoardingClass;
 
 import java.util.List;

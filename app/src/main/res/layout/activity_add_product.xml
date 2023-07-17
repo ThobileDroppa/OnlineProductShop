@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/three_blue"
+    android:orientation="vertical"
+    tools:context=".AddProduct">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Add Product"
+        app:subtitleTextColor="@color/white"
+        app:titleTextColor="@color/white"
+        android:backgroundTint="@color/two_blue"
+        android:paddingEnd="25dp"
+        android:elevation="20dp"
+        app:menu="@menu/home_menu"
+        android:background="@color/two_blue"
+        >
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="14dp"
+        android:background="@drawable/scroll_layout"
+        android:padding="15dp"
+        android:orientation="vertical"
+        >
+
+        <!--Add image -->
+        <LinearLayout
+            android:id="@+id/add_photo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:id="@+id/add_photo_img"
+                android:layout_gravity="center"
+                android:src="@drawable/add_a_photo_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="55dp"
+            android:background="@color/one_blue"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_add_product_text"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="15dp"
+                android:lines="1"
+                android:id="@+id/name_fill_add_product_text"
+                android:background="@drawable/signup_text_box"
+                android:hint="Product Name" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/product_description"
+                android:text="Description"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="15dp"
+                android:id="@+id/description_fill_add_product_text"
+                android:background="@drawable/signup_text_box"
+                android:hint="Product Description" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quantity_add_product_textView"
+                android:text="Quantity"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="15dp"
+                android:id="@+id/quantity_add_product_EditText"
+                android:lines="1"
+                android:inputType="number"
+                android:background="@drawable/signup_text_box"
+                android:hint="Product Quantity" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/price_add_product_textView"
+                android:text="Price"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textSize="18sp"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="15dp"
+                android:id="@+id/price_add_product_EditText"
+                android:lines="1"
+                android:inputType="number"
+                android:background="@drawable/signup_text_box"
+                android:hint="Product Price" />
+
+        </LinearLayout>
+
+         </LinearLayout>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="58dp"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="center"
+            android:id="@+id/add_product_btn"
+            android:text="ADD"
+            android:textColor="@color/one_blue"/>
+
+    </LinearLayout>
+</ScrollView>

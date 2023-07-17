@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/three_blue"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="555dp"
-        android:src="@drawable/shop_logo" />
+        android:src="@drawable/shop_logo_remove" />
 
 
     <LinearLayout

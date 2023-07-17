@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/home_layout"
+    android:padding="25dp"
+    android:orientation="vertical"
+    tools:context=".HomePageActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Home"
+        app:titleTextColor="@color/white"
+        android:backgroundTint="@color/two_blue"
+        android:paddingEnd="25dp"
+        android:elevation="20dp"
+        app:menu="@menu/home_menu"
+        android:background="@drawable/toolbar_background"
+        >
+        <ImageView
+            android:id="@+id/add_product_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:src="@drawable/person_white_icon"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/products_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+
+   <!-- <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="VIEW CART"
+        android:backgroundTint="@color/two_blue"
+        android:layout_gravity="end"/>-->
+
+
+</LinearLayout>

@@ -5,4 +5,22 @@
 
     <!-- general Color Schemes -->
     <color name="red">#d10000</color>
+    <color name="gray">#8a817c</color>
+    <color name="white_smoke">#faf9f9</color>
+
+
+    <!--Theme Colors -->
+    <color name="one_blue">#0d1b2a</color>
+    <color name="two_blue">#1b263b</color>
+    <color name="three_blue">#415a77</color>
+    <color name="four_blue">#778da9</color>
+    <color name="five_blue">#e0e1dd</color>
+
+
+
+    <color name="mid_blue">#1b263b</color>
+
+    <color name="muddy_white">#fefae0</color>
+
+
 </resources>

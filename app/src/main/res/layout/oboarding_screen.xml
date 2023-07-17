@@ -16,7 +16,10 @@
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/onboarding_textView"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:gravity="center"
         android:text="Online"/>
 
 </LinearLayout>
