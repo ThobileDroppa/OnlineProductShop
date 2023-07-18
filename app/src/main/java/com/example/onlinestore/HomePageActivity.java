@@ -17,6 +17,7 @@ import com.example.onlinestore.model.Product;
 import com.example.onlinestore.utils.Credentials;
 import com.example.onlinestore.utils.UserApi;
 import com.example.onlinestore.utils.RecyclerViewInterface;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class HomePageActivity extends AppCompatActivity implements RecyclerViewI
 
     private ImageView addProductIcon;
 
-    private ArrayList<Product> myList;
+    private ArrayList<ProductList> myList;
 
     private Menu menu;
 
@@ -106,14 +107,14 @@ public class HomePageActivity extends AppCompatActivity implements RecyclerViewI
                         .addConverterFactory(GsonConverterFactory.create()).build();
 
         UserApi userApi = retrofitBuilder.create(UserApi.class);
-        Call<List<Product>> user = userApi.availableToShop(Credentials.getToken());
+        Call<List<ProductList>> user = userApi.availableToShop(Credentials.getToken());
 
-        user.enqueue(new Callback<List<Product>>() {
+        user.enqueue(new Callback<List<ProductList>>() {
             @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+            public void onResponse(Call<List<ProductList>> call, Response<List<ProductList>> response) {
                 if (response.code() == 200) {
 
-                    myList = (ArrayList<Product>) response.body();
+                    myList = (ArrayList<ProductList>) response.body();
                     putDataIntoRecyclerView(myList);
 
                    /* myList = new ArrayList<>(productList.get());
@@ -126,11 +127,12 @@ public class HomePageActivity extends AppCompatActivity implements RecyclerViewI
                     Log.e("ERROR", "CODE- " + response.code());
                     Log.e("ERROR", "CODE IS NOT 200");
                     System.out.println(response.errorBody().toString());
+                    System.out.println(response.errorBody().toString());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
+            public void onFailure(Call<List<ProductList>> call, Throwable t) {
 
                 Log.e("ON FAILURE", "ON FAILURE IS CALLED ");
                 Log.e("TAG_string", "onResponse:_ " + t.getMessage(),t);
@@ -141,7 +143,7 @@ public class HomePageActivity extends AppCompatActivity implements RecyclerViewI
 
     }
 
-    private void putDataIntoRecyclerView(List<Product> productList){
+    private void putDataIntoRecyclerView(ArrayList<ProductList> productList){
 
         ProductAdapter productAdapter1 = new ProductAdapter(this, myList,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -153,12 +155,8 @@ public class HomePageActivity extends AppCompatActivity implements RecyclerViewI
 
         Intent i = new Intent(HomePageActivity.this,ProductView.class);
 
+        i.putExtra("Product",myList.get(position));
 
-        i.putExtra("NAME",myList.get(position).getNameofProduct());
-        i.putExtra("DESC",myList.get(position).getDescription());
-        i.putExtra("PRICE",String.valueOf(myList.get(position).getPrice()));
-        i.putExtra("QUANTITY",String.valueOf(myList.get(position).getQuantity()));
-        i.putExtra("IMAGE",myList.get(position).getImage());
 
         startActivity(i);
 

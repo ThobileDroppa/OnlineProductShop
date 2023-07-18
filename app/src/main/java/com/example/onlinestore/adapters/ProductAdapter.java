@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.onlinestore.ProductList;
 import com.example.onlinestore.R;
 import com.example.onlinestore.model.Product;
 import com.example.onlinestore.utils.RecyclerViewInterface;
@@ -23,7 +24,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private final RecyclerViewInterface recyclerViewInterface;
 
-    private List<Product> listProducts;
+    private List<ProductList> listProducts;
     private Context context;
 
     /*public ProductAdapter(RecyclerViewInterface recyclerViewInterface) {
@@ -32,7 +33,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.context = context;
     }*/
 
-    public ProductAdapter(RecyclerViewInterface recyclerViewInterface, List<Product> listProducts, Context context) {
+    public ProductAdapter(RecyclerViewInterface recyclerViewInterface, ArrayList<ProductList> listProducts, Context context) {
         this.recyclerViewInterface = recyclerViewInterface;
         this.listProducts = listProducts;
         this.context = context;
@@ -104,17 +105,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     }
 
-    public List<Product> getAll(){ return  listProducts;}
+    public List<ProductList> getAll(){ return  listProducts;}
 
-    public  List<Product> getSelected() {
-        List<Product> selected = new ArrayList<>();
-        for (int i = 0; i < listProducts.size(); i++) {
-            if (listProducts.get(i).isChecked()) {
-                selected.add(listProducts.get(i));
-            }
-        }
-        return selected;
-    }
+
 
 
 }

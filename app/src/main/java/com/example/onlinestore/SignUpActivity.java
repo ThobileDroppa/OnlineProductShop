@@ -177,7 +177,7 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(new Intent(SignUpActivity.this, SplashWelcome.class));
 
                 }else{
-                    Log.e("ERROR","FAILED");
+                    Log.e("ERROR","FAILED ---  ELSE IS CALLED");
                     Log.e("code",String.valueOf(response.code())+response.errorBody().toString());
                     System.out.println("ELSE IS TRIGGERED");
                     System.out.println("CODE RETURNED: "+String.valueOf(response.code()));
@@ -188,7 +188,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
 
-                Log.e("ERROR","FAILED");
+                Log.e("ERROR","ONFAILURE IS CALLED");
                 Log.e("code",t.toString());
                 System.out.println("ON FAILURE METHOD IS CALLED");
                 System.out.println(t.getCause());

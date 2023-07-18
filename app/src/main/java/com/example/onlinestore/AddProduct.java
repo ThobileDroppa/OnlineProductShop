@@ -1,7 +1,10 @@
 package com.example.onlinestore;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,15 +16,21 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinestore.model.Product;
 import com.example.onlinestore.user.models.UserModel;
 import com.example.onlinestore.utils.Credentials;
+import com.example.onlinestore.utils.RealPathUtil;
 import com.example.onlinestore.utils.UserApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -127,15 +136,17 @@ public class AddProduct extends AppCompatActivity {
             if (data != null) {
                 imageUri = data.getData();        // Getting the actual image path
                 addPhoto.setImageURI(imageUri);  // Showing the image
-                uriString = imageUri.toString();
-                //addPhoto.setMaxHeight();
+               // uriString = imageUri.toString();
+                Context context = AddProduct.this;
+                uriString = RealPathUtil.getRealPath(context,imageUri);
+
+                Bitmap bitmap = BitmapFactory.decodeFile(uriString);
             }
         }
     }
 
 
     private void createProduct(Product product) {
-
 
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -146,6 +157,10 @@ public class AddProduct extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create()).build();
 
         UserApi userApi = retrofit.create(UserApi.class);
+
+
+        File file =  new File(uriString);
+        //RequestBody requestFile = RequestBody.create(MediaType.parse(""))
 
         Call<Product> service = userApi.createProduct(Credentials.getToken() , product);
 
@@ -159,6 +174,7 @@ public class AddProduct extends AppCompatActivity {
                     Log.d("code response", "CODE: " + response.code());
 
                     startActivity(new Intent(AddProduct.this,AdminPage.class));
+                    Toast.makeText(AddProduct.this, "Product Successfully Added To Market", Toast.LENGTH_SHORT).show();
                 }else {
 
                     Log.d("code response", "CODE: " + response.code());

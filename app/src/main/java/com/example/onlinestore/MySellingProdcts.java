@@ -35,7 +35,7 @@ public class MySellingProdcts extends AppCompatActivity implements RecyclerViewI
 
     private ImageView addProductIcon;
 
-    private ArrayList<Product> myList;
+    private ArrayList<ProductList> myList;
 
     private Menu menu;
 
@@ -63,14 +63,14 @@ public class MySellingProdcts extends AppCompatActivity implements RecyclerViewI
                         .addConverterFactory(GsonConverterFactory.create()).build();
 
         UserApi userApi = retrofitBuilder.create(UserApi.class);
-        Call<List<Product>> user = userApi.mySellingProducts(Credentials.getToken());
+        Call<List<ProductList>> user = userApi.mySellingProducts(Credentials.getToken());
 
-        user.enqueue(new Callback<List<Product>>() {
+        user.enqueue(new Callback<List<ProductList>>() {
             @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+            public void onResponse(Call<List<ProductList>> call, Response<List<ProductList>> response) {
                 if (response.code() == 200) {
                     System.out.println("----------------------------------HERE ---"+response.code());
-                    myList = (ArrayList<Product>) response.body();
+                    myList = (ArrayList<ProductList>) response.body();
                     putDataIntoRecyclerView(myList);
                     Log.e("Successful", "=== " + response.toString());
                 }else{
@@ -85,7 +85,7 @@ public class MySellingProdcts extends AppCompatActivity implements RecyclerViewI
             }
 
             @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
+            public void onFailure(Call<List<ProductList>> call, Throwable t) {
 
                 Log.e("ON FAILURE", "ON FAILURE IS CALLED ");
                 Log.e("TAG_string", "onResponse:_ " + t.getMessage(),t);
@@ -94,7 +94,7 @@ public class MySellingProdcts extends AppCompatActivity implements RecyclerViewI
         });
     }
 
-                private void putDataIntoRecyclerView(List<Product> productList){
+                private void putDataIntoRecyclerView(List<ProductList> productList){
 
                     ProductAdapter productAdapter1 = new ProductAdapter( this, myList,this);
                     recyclerView.setLayoutManager(new LinearLayoutManager(this));

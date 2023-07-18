@@ -26,6 +26,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+   
+
 }
 
 dependencies {
@@ -39,6 +41,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //Retrofit Dependency
+    /*implementation 'com.squareup.retrofit2:retrofit:2.9.0'*/
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
     //GSON
@@ -53,10 +56,5 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.7.0'
 
     implementation 'com.squareup.picasso:picasso:2.8'
-    /*androidTestImplementation 'androidx.test.ex:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
-    testImplementation 'junit:junit:4.+'*/
 
-//    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 }

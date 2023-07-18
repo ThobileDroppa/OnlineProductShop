@@ -1,12 +1,17 @@
 package com.example.onlinestore.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import com.example.onlinestore.user.models.UserModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Product {
+public class Product implements Parcelable {
 
     /*//constants
     public static final String TABLE_NAME = "products";
@@ -18,6 +23,8 @@ public class Product {
     private boolean isChecked = false;
 
     private String description;
+
+    private Long id;
     private int quantity;
     private Double price;
     private String image;
@@ -44,6 +51,31 @@ public class Product {
 
     public Product() {
     }
+
+    protected Product(Parcel in) {
+        nameofProduct = in.readString();
+        isChecked = in.readByte() != 0;
+        description = in.readString();
+        quantity = in.readInt();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+        image = in.readString();
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 
     public boolean isChecked() {
         return isChecked;
@@ -99,5 +131,25 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(nameofProduct);
+        parcel.writeByte((byte) (isChecked ? 1 : 0));
+        parcel.writeString(description);
+        parcel.writeInt(quantity);
+        if (price == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeDouble(price);
+        }
+        parcel.writeString(image);
     }
 }

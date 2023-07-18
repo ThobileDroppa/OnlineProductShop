@@ -6,12 +6,13 @@
     android:orientation="vertical"
     android:elevation="5dp"
     android:layout_margin="12dp"
-    android:layout_height="wrap_content">
+    android:paddingBottom="20dp"
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Add Product"
+        app:title="Product "
         app:subtitleTextColor="@color/white"
         app:titleTextColor="@color/white"
         android:backgroundTint="@color/two_blue"
@@ -101,25 +102,6 @@
             android:layout_weight="1"
             android:textSize="20sp"/>
 
-        <!--<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="left:  "
-            android:textStyle="italic"
-            android:textColor="@color/black"
-            android:layout_gravity="end"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/product_quantity"
-            android:text="Quantity"
-            android:textStyle="italic"
-            android:textColor="@color/black"
-            android:layout_gravity="end"
-            android:textSize="15sp"/>-->
-
     </LinearLayout>
 
 
@@ -151,11 +133,48 @@
 
 </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="ADD TO CART"
-        android:backgroundTint="@color/two_blue"
-        android:id="@+id/add_product_cart_btn"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="ADD TO CART"
+            android:backgroundTint="@color/two_blue"
+            android:id="@+id/add_product_to_cart_btn"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Continue Shopping"
+            android:layout_marginTop="10dp"
+            android:textSize="21sp"
+            android:gravity="left"
+            android:drawableEnd="@drawable/continue_shopping"
+            android:backgroundTint="@color/lime_green"
+            android:id="@+id/continue_shopping_btn"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Proceed To Checkout"
+            android:layout_marginTop="10dp"
+            android:textSize="21sp"
+            android:gravity="left"
+            android:layout_gravity="end"
+            android:drawableEnd="@drawable/checkout_icon"
+            android:backgroundTint="@color/two_blue"
+            android:id="@+id/proceed_to_checkout_btn"/>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

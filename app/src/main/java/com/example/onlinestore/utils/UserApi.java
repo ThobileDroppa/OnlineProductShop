@@ -1,5 +1,6 @@
 package com.example.onlinestore.utils;
 
+import com.example.onlinestore.ProductList;
 import com.example.onlinestore.model.Product;
 import com.example.onlinestore.response.LoginSuccess;
 import com.example.onlinestore.user.models.UserModel;
@@ -25,10 +26,13 @@ public interface UserApi {
     Call<Product> createProduct(@Header("authentication")String token,@Body Product product);
 
     @GET("entity.product/availableToShop")
-    Call<List<Product>> availableToShop(@Header("authentication")String token);
+    Call<List<ProductList>> availableToShop(@Header("authentication")String token);
 
     @GET("entity.product/mySellingProducts")
-    Call<List<Product>> mySellingProducts(@Header("authentication")String token);
+    Call<List<ProductList>> mySellingProducts(@Header("authentication")String token);
+
+    @POST("entity.product/addToCart")
+    Call<ProductList> addToCart(@Header("authentication")String token,@Body ProductList product);
 
    /* @POST("entity.useraccount/create")
     Call<UserModel> createUser(@Body UserModel userModel);*/
