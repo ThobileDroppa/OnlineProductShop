@@ -1,22 +1,20 @@
-package com.example.onlinestore;
+package com.example.onlinestore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import com.example.onlinestore.model.Product;
 import com.example.onlinestore.user.models.UserModel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductList implements Parcelable{
 
     private Long id;
+
 
     private String nameofProduct;
 
@@ -30,7 +28,7 @@ public class ProductList implements Parcelable{
     @Expose
     private UserModel userModel;
 
-    public ProductList(Long id, String nameofProduct, String description, int quantity, Double price, String image, UserModel userModel) {
+    public ProductList(Long id, String nameOfProduct, String description, int quantity, Double price, String image, UserModel userModel) {
         this.id = id;
         this.nameofProduct = nameofProduct;
         this.description = description;

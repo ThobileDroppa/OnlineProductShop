@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinestore.adapters.ProductAdapter;
 import com.example.onlinestore.model.Product;
+import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.utils.Credentials;
 import com.example.onlinestore.utils.UserApi;
 import com.example.onlinestore.utils.RecyclerViewInterface;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,37 +67,7 @@ public class HomePageActivity extends AppCompatActivity implements RecyclerViewI
 
         availableToShop();
 
-        createListOfData();
-
-
-
     }
-
-    private void createListOfData(){
-
-        ArrayList<Product> cartList =  new ArrayList<>();
-
-        for (int i = 0; i < myList.size() ; i++){
-            Product product= new Product();
-
-            product.setNameofProduct(myList.get(i).getNameofProduct());
-            product.setPrice(myList.get(i).getPrice());
-            product.setDescription(myList.get(i).getDescription());
-
-            if (i == 0 ){
-                product.setChecked(true);
-            }
-
-           cartList.add(product);
-
-            System.out.println("CART LIST" + cartList.get(i).getNameofProduct());
-        }
-
-        /*productAdapter.setProducts(myList);*/
-
-    }
-
-
 
     private void availableToShop() {
 

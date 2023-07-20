@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.onlinestore.ProductList;
+import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.R;
-import com.example.onlinestore.model.Product;
 import com.example.onlinestore.utils.RecyclerViewInterface;
 
 import java.util.ArrayList;
@@ -26,12 +25,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private List<ProductList> listProducts;
     private Context context;
-
-    /*public ProductAdapter(RecyclerViewInterface recyclerViewInterface) {
-       // this.recyclerViewInterface = recyclerViewInterface;
-        this.listProducts = listProducts;
-        this.context = context;
-    }*/
 
     public ProductAdapter(RecyclerViewInterface recyclerViewInterface, ArrayList<ProductList> listProducts, Context context) {
         this.recyclerViewInterface = recyclerViewInterface;
@@ -69,7 +62,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public int getItemCount() {
 
         return listProducts.size();
-        //return listProducts.length;
+
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {

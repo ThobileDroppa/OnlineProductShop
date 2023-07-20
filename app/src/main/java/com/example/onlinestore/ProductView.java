@@ -12,15 +12,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.onlinestore.model.Product;
-import com.example.onlinestore.user.models.UserModel;
+import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.utils.Credentials;
 import com.example.onlinestore.utils.UserApi;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,13 +58,13 @@ public class ProductView extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        String titles = i.getStringExtra("NAME");
+        /*String titles = i.getStringExtra("NAME");
         String descs = i.getStringExtra("DESC");
         String prices = i.getStringExtra("PRICE");
         String qty = i.getStringExtra("QUANTITY");
         String imgs = i.getStringExtra("IMAGE");
         String jObject = i.getStringExtra("OBJECT");
-
+*/
         ProductList product1 = i.getParcelableExtra("Product");
 
 
@@ -106,6 +103,13 @@ public class ProductView extends AppCompatActivity {
             }
         });
 
+        proceedToCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProductView.this,CheckoutPage.class));
+            }
+        });
+
     }
 
     private void addToCart(ProductList product) {
@@ -129,6 +133,11 @@ public class ProductView extends AppCompatActivity {
                     Log.d("code response","CODE: "+response.code());
 
                 }else {
+
+                    Log.e("ERROR", "CODE- " + response.code());
+                    Log.e("ERROR", "CODE IS NOT 200");
+                    System.out.println(response.errorBody().toString());
+                    System.out.println(response.errorBody().toString());
 
                 }
 

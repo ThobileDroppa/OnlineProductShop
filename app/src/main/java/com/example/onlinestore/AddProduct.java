@@ -16,10 +16,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onlinestore.model.Product;
+import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.user.models.UserModel;
 import com.example.onlinestore.utils.Credentials;
 import com.example.onlinestore.utils.RealPathUtil;
@@ -29,8 +29,6 @@ import com.google.gson.GsonBuilder;
 
 import java.io.File;
 
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

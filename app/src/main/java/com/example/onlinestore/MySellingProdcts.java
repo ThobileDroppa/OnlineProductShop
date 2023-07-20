@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinestore.adapters.MySellingAdapter;
 import com.example.onlinestore.adapters.ProductAdapter;
-import com.example.onlinestore.model.Product;
+import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.utils.Credentials;
 import com.example.onlinestore.utils.RecyclerViewInterface;
 import com.example.onlinestore.utils.UserApi;
@@ -51,6 +51,8 @@ public class MySellingProdcts extends AppCompatActivity implements RecyclerViewI
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(sellingAdapter);
+
+        //sellingAdapter.
 
         mySellingProducts();
     }

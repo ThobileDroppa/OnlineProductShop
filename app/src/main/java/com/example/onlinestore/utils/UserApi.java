@@ -1,18 +1,27 @@
 package com.example.onlinestore.utils;
 
-import com.example.onlinestore.ProductList;
+import android.database.Observable;
+
+import com.example.onlinestore.model.CartItem;
+import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.model.Product;
 import com.example.onlinestore.response.LoginSuccess;
 import com.example.onlinestore.user.models.UserModel;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Url;
 
 public interface UserApi {
 
@@ -34,8 +43,27 @@ public interface UserApi {
     @POST("entity.product/addToCart")
     Call<ProductList> addToCart(@Header("authentication")String token,@Body ProductList product);
 
-   /* @POST("entity.useraccount/create")
-    Call<UserModel> createUser(@Body UserModel userModel);*/
+    @GET("entity.product/viewCart")
+    Call<List<CartItem>> viewCart(@Header("authentication")String token);
+
+    /*@Multipart
+    @POST("entity.product/createProduct")
+    Observable<ResponseBody> updateProfile(@Part("product") Product product,
+                                           @Part MultipartBody.Part image);*/
+
+  /*  @POST
+    Call<Product> createProduct(@Url String url, @Part MultipartBody.Part image,
+                                @Body Product product);*/
+
+    @POST("entity.product/removeFromCart/{id}")
+    Call<ResponseBody> removeFromCart(@Header("authentication")String token,@Path("id") Long id);
+
+
+    @GET("entity.product/getCartTotal")
+    Call<Double> getCartTotal(@Header("authentication")String token);
+
+
+
 
 
 

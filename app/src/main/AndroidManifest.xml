@@ -16,6 +16,9 @@
         android:theme="@style/Theme.OnlineStore"
         tools:targetApi="31">
         <activity
+            android:name=".CheckoutPageView"
+            android:exported="false" />
+        <activity
             android:name=".CheckoutPage"
             android:exported="false" />
         <activity
