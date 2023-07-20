@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.onlinestore.model.CartItem;
+import com.example.onlinestore.model.Product;
 import com.example.onlinestore.model.ProductList;
 import com.example.onlinestore.utils.Credentials;
 import com.example.onlinestore.utils.UserApi;
@@ -31,6 +33,8 @@ public class CheckoutPageView extends AppCompatActivity {
 
     private TextView title,desc,price,quantity,inStock;
 
+    private LinearLayout continueBtn;
+
     int num=1;
 
     @Override
@@ -47,10 +51,12 @@ public class CheckoutPageView extends AppCompatActivity {
         decreaseBtn = findViewById(R.id.decrease_btn);
         increaseBtn = findViewById(R.id.increase_btn);
         removeBtn = findViewById(R.id.removeBtn);
+        continueBtn = findViewById(R.id.continue_to_payment);
 
         Intent i = getIntent();
 
         CartItem cartItem = i.getParcelableExtra("cartItem");
+        //cartItem.getProductList().getUserModel().
 
         title.setText(cartItem.getProductList().getNameofProduct());
         desc.setText(cartItem.getProductList().getDescription());
@@ -107,6 +113,14 @@ public class CheckoutPageView extends AppCompatActivity {
                 }
             });
 
+            continueBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   // System.out.println("=================================A"+cartItem);
+                    updateCart(cartItem.getProductList().getId(), cartItem.getNumItems());
+                }
+            });
+
 
     }
 
@@ -147,5 +161,38 @@ public class CheckoutPageView extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void updateCart(Long id,int numProducts) {
+
+        //System.out.println("============================="+productList.getId());
+        Retrofit retrofitBuilder =
+                new Retrofit.Builder()
+                        .baseUrl(Credentials.BASE_KEY)
+                        .addConverterFactory(GsonConverterFactory.create()).build();
+
+        UserApi userApi = retrofitBuilder.create(UserApi.class);
+        Call<ResponseBody> user = userApi.updateCart(Credentials.getToken(),id,numProducts);
+
+        user.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.code() == 204) {
+
+                    Log.d("Create User","UPDATED----Successful----------------");
+                    Log.d("code response","CODE: "+response.code());
+
+                    startActivity(new Intent(CheckoutPageView.this, CheckoutPage.class));
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.d("Create User","----ON FAILURE----------------");
+
+            }
+        });
+
     }
 }

@@ -212,6 +212,7 @@
             android:layout_width="197dp"
             android:background="@color/two_blue"
             android:gravity="center"
+            android:id="@+id/continue_to_payment"
             android:layout_height="match_parent">
 
             <TextView

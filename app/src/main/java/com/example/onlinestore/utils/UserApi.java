@@ -62,6 +62,13 @@ public interface UserApi {
     @GET("entity.product/getCartTotal")
     Call<Double> getCartTotal(@Header("authentication")String token);
 
+    /*@POST
+    @Path("updateCart")
+    https://2557-41-76-201-165.ngrok-free.app/TryHere/resources/entity.product/updateCart
+    public void updateFromCart(CartItem cartItem,@HeaderParam("authentication")String token)*/
+
+    @POST("entity.product/updateCart/{id}/{numberoproduct}")
+    Call<ResponseBody> updateCart(@Header("authentication")String token,@Path("id") Long productID,@Path("numberoproduct")int numberofProducts);
 
 
 
