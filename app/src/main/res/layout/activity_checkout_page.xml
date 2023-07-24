@@ -45,6 +45,88 @@
             android:textSize="24sp"/>-->
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/make_payment_backgound"
+            android:elevation="15dp"
+            android:padding="15dp"
+            android:id="@+id/proceed_Layout"
+            android:orientation="horizontal">
+
+           <!-- <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:id="@+id/cart_num_items"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item(s)"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>-->
+
+            <!--<View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>-->
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_storefront_24"
+                android:layout_gravity="center_horizontal"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:textSize="22sp"
+            android:textColor="@color/white"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="R"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0.00"
+                android:id="@+id/cart_total"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+
+
+        </LinearLayout>
+
+    <!--    <LinearLayout
         android:layout_width="match_parent"
         android:layout_gravity="end"
         android:layout_height="90dp"
@@ -63,7 +145,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
-            <TextView
+            &lt;!&ndash;<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:text="R"
@@ -78,7 +160,7 @@
                 android:id="@+id/cart_total"
                 android:layout_gravity="end"
                 android:textColor="@color/white"
-                android:textSize="33sp"/>
+                android:textSize="33sp"/>&ndash;&gt;
 
 
         </LinearLayout>
@@ -93,7 +175,7 @@
             android:layout_marginBottom="5dp"
             android:textSize="24sp"/>
 
-       <!-- <LinearLayout
+       &lt;!&ndash; <LinearLayout
             android:layout_width="match_parent"
             android:layout_gravity="end"
             android:layout_height="90dp"
@@ -114,11 +196,11 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="33sp"/>-->
+                android:textSize="33sp"/>&ndash;&gt;
 
 
 
-
+-->
         </LinearLayout>
 
     </LinearLayout>

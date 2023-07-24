@@ -97,7 +97,7 @@ public class AddProduct extends AppCompatActivity {
 
                         //Product product = new Product(productName,desc,Integer.parseInt(productQuantity),Double.parseDouble(productPrice),"lets go");
 
-                        createProduct(new Product(productName,desc,Integer.parseInt(productQuantity),Double.parseDouble(productPrice),uriString,new UserModel(null,null,null)));
+                        createProduct(new Product(productName,desc,Integer.parseInt(productQuantity),Double.parseDouble(productPrice),"uriString",new UserModel(null,null,null)));
 
 
                     }
@@ -157,7 +157,7 @@ public class AddProduct extends AppCompatActivity {
         UserApi userApi = retrofit.create(UserApi.class);
 
 
-        File file =  new File(uriString);
+        //File file =  new File(uriString);
         //RequestBody requestFile = RequestBody.create(MediaType.parse(""))
 
         Call<Product> service = userApi.createProduct(Credentials.getToken() , product);

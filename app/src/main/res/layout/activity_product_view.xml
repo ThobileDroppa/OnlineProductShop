@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/product_view_background"
     android:orientation="vertical"
-    android:elevation="5dp"
     android:layout_margin="12dp"
     android:paddingBottom="20dp"
     android:layout_height="match_parent">
@@ -30,6 +29,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="250dp"
+    android:elevation="5dp"
     android:orientation="horizontal"
     >
 
@@ -45,6 +45,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:elevation="5dp"
     android:layout_marginTop="5dp"
     android:background="@drawable/product_details_border"
     android:paddingLeft="2dp"
@@ -141,6 +142,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             android:text="ADD TO CART"
             android:backgroundTint="@color/two_blue"
             android:id="@+id/add_product_to_cart_btn"/>

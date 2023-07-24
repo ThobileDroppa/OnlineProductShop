@@ -81,8 +81,10 @@ public class CheckoutPageView extends AppCompatActivity {
                         num++;
 
                         quantity.setText(String.valueOf(num));
-                        price.setText(String.valueOf((cartItem.getProductList().getPrice())*num));
-                    }
+                        Double newPrice = cartItem.getProductList().getPrice()*(num);
+                        price.setText(String.valueOf(newPrice));
+                 //cartItem.getProductList().setPrice(newPrice);
+                 }
 
 
                 }
@@ -117,6 +119,7 @@ public class CheckoutPageView extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                    // System.out.println("=================================A"+cartItem);
+                    cartItem.setNumItems(num);
                     updateCart(cartItem.getProductList().getId(), cartItem.getNumItems());
                 }
             });
@@ -181,6 +184,10 @@ public class CheckoutPageView extends AppCompatActivity {
 
                     Log.d("Create User","UPDATED----Successful----------------");
                     Log.d("code response","CODE: "+response.code());
+
+
+
+
 
                     startActivity(new Intent(CheckoutPageView.this, CheckoutPage.class));
 

@@ -38,13 +38,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>
 
-
-   <!-- <Button
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="VIEW CART"
+        android:layout_height="60dp"
+        android:text="View Cart"
+        android:id="@+id/home_view_cart"
+        android:textSize="21sp"
+        android:textStyle="bold"
         android:backgroundTint="@color/two_blue"
-        android:layout_gravity="end"/>-->
+        android:layout_gravity="end"/>
 
 
 </LinearLayout>

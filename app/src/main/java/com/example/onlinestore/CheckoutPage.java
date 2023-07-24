@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.onlinestore.adapters.CheckoutAdapter;
@@ -30,12 +32,16 @@ public class CheckoutPage extends AppCompatActivity implements RecyclerViewInter
     private ArrayList<CartItem> cartList;
     private int maxQ;
 
+    int numItems;
+
     CheckoutAdapter checkoutAdapter;
 
     private RecyclerView recyclerView;
     Double cartTotal;
 
-    private TextView cartTotalText;
+    private LinearLayout proceed;
+
+    private TextView cartTotalText,numItemsText;
 
 
     @Override
@@ -46,16 +52,22 @@ public class CheckoutPage extends AppCompatActivity implements RecyclerViewInter
         cartList = new ArrayList<>();
         recyclerView = findViewById(R.id.cart_recyclerView);
         cartTotalText = findViewById(R.id.cart_total);
+        //numItemsText = findViewById(R.id.cart_num_items);
+        proceed = findViewById(R.id.proceed_Layout);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(checkoutAdapter);
         viewCart();
         getCartTotal();
 
+        proceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(CheckoutPage.this,PaymentActvity.class);
+                startActivity(i);
+            }
+        });
 
-        //cartTotalText.setText(String.valueOf(cartTotal));
-
-       // cartTotal = getCartTot
     }
 
     private void getCartTotal(){
@@ -116,9 +128,19 @@ public class CheckoutPage extends AppCompatActivity implements RecyclerViewInter
 
                 if (response.code() == 200) {
                     System.out.println("--------------VIEW CART--------------------HERE ---"+response.code());
+
+
                     cartList = (ArrayList<CartItem>) response.body();
-                    System.out.println(cartList.get(0).getProductList().getNameofProduct());
-                    putDataIntoRecyclerView(cartList);
+
+                    if(cartList.size()>0){
+                        putDataIntoRecyclerView(cartList);
+
+                    }else{
+
+                    }
+
+
+
                     Log.e("Successful", "=== " + response.toString());
                 }else{
                     System.out.println("----------------------------------HERE "+response.code());
@@ -155,6 +177,16 @@ public class CheckoutPage extends AppCompatActivity implements RecyclerViewInter
 
 
         startActivity(i);
+
+    }
+
+    @Override
+    public void onCartClick(int pos) {
+
+    }
+
+    @Override
+    public void onRemoveCartClick(int pos) {
 
     }
 }

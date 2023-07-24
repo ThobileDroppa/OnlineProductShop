@@ -15,6 +15,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
@@ -70,7 +71,8 @@ public interface UserApi {
     @POST("entity.product/updateCart/{id}/{numberoproduct}")
     Call<ResponseBody> updateCart(@Header("authentication")String token,@Path("id") Long productID,@Path("numberoproduct")int numberofProducts);
 
-
+    @DELETE("remove/{id}")
+    Call<ResponseBody> remove(@Header("authentication")String token,@Path("id") Long productID);
 
 
 

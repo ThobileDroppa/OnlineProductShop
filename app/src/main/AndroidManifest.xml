@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineStore"
         tools:targetApi="31">
+        <activity
+            android:name=".OwnerProductView"
+            android:exported="false" />
         <activity
             android:name=".PaymentActvity"
             android:exported="false" />

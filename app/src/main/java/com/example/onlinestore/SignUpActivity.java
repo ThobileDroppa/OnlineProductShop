@@ -176,7 +176,11 @@ public class SignUpActivity extends AppCompatActivity {
                    emailList.add(userModel.getEmail());
                     startActivity(new Intent(SignUpActivity.this, SplashWelcome.class));
 
-                }else{
+                } else if (response.code()==400) {
+
+                    Toast.makeText(SignUpActivity.this, "Account Already exists", Toast.LENGTH_SHORT).show();
+
+                } else{
                     Log.e("ERROR","FAILED ---  ELSE IS CALLED");
                     Log.e("code",String.valueOf(response.code())+response.errorBody().toString());
                     System.out.println("ELSE IS TRIGGERED");

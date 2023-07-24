@@ -1,5 +1,6 @@
 package com.example.onlinestore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -105,6 +106,22 @@ public class MySellingProdcts extends AppCompatActivity implements RecyclerViewI
 
     @Override
     public void onItemClick(int position) {
+        Intent i = new Intent(MySellingProdcts.this,OwnerProductView.class);
+
+        i.putExtra("Product",myList.get(position));
+
+
+        startActivity(i);
+
+    }
+
+    @Override
+    public void onCartClick(int pos) {
+
+    }
+
+    @Override
+    public void onRemoveCartClick(int pos) {
 
     }
 }

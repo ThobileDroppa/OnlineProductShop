@@ -2,6 +2,7 @@
 
     import android.content.Intent;
     import android.os.Bundle;
+    import android.os.Handler;
     import android.text.TextUtils;
     import android.util.Log;
     import android.util.Patterns;
@@ -35,6 +36,8 @@
 
     private Button loginBtn;
 
+    private LoaderDialog loaderDialog;
+
     private String access = "";
 
     @Override
@@ -46,6 +49,8 @@
         email =findViewById(R.id.email_login_text);
         password = findViewById(R.id.password_login_text);
         loginBtn = findViewById(R.id.login_btn);
+
+        loaderDialog = new LoaderDialog(this);
 
 
               loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +73,24 @@
 
                       if(validateText(emails,passwords)&&validateEmail(emails)){
 
-                          loginUser(emails,passwords);
-                         // startActivity(new Intent(LoginActivity.this,SplashScreen.class));
+                          loaderDialog.show();
+
+                          Handler handler = new Handler();
+                          Runnable runnable = new Runnable() {
+                              @Override
+                              public void run() {
+                                  loaderDialog.cancel();
+
+                                  loginUser(emails,passwords);
+
+                                  //startActivity(new Intent(LoginActivity.this,SplashScreen.class));
+
+                              }
+                          };
+                          handler.postDelayed(runnable,1000);
+
+                          //loginUser(emails,passwords);
+                         //startActivity(new Intent(LoginActivity.this,SplashScreen.class));
                       }
 
                   }
@@ -149,6 +170,7 @@
                     Log.e("Successful", "=== " + response.toString());
 
                     Credentials.setToken(response.body().getToken());
+                    loaderDialog.cancel();
 
                     //String result = response.body()
                     System.out.println("Response Body Result= "+response.body().getClass().toString());
@@ -156,6 +178,11 @@
 
                     //startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
                     startActivity(new Intent(LoginActivity.this, SplashScreen.class));
+
+                }else if(response.code()==401){
+
+                    Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+
 
                 }else {
                     Log.e("Error",String.valueOf(response.code()));
@@ -180,13 +207,7 @@
 
             }
 
-
-
-
         });
-
-
-
 
     }
 }

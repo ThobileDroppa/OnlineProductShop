@@ -67,7 +67,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView productImage;
+        public ImageView productImage,cartImg,plusSign,greenCart;
         private TextView price, title, quantity;
         private LinearLayout addToCart;
 
@@ -79,6 +79,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             this.title = itemView.findViewById(R.id.product_title);
             this.productImage = itemView.findViewById(R.id.product_image);
             this.addToCart = itemView.findViewById(R.id.add_to_cart_layout);
+            this.cartImg = itemView.findViewById(R.id.add_to_cart_image);
+            this.plusSign = itemView.findViewById(R.id.add_to_cart_plus_sign);
+            this.greenCart = itemView.findViewById(R.id.green_cart);
+
+            itemView.findViewById(R.id.green_cart).setVisibility(View.INVISIBLE);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -92,11 +98,48 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     }
                 }
             });
+
+            itemView.findViewById(R.id.add_to_cart_layout).
+                    setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    itemView.findViewById(R.id.add_to_cart_plus_sign).setVisibility(View.INVISIBLE);
+                    itemView.findViewById(R.id.add_to_cart_image).setVisibility(View.INVISIBLE);
+                    itemView.findViewById(R.id.green_cart).setVisibility(View.VISIBLE);
+
+
+                    if(recyclerViewInterface!=null) {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onCartClick(pos);
+                        }
+                    }
+                }
+            });
+
+            itemView.findViewById(R.id.green_cart).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemView.findViewById(R.id.add_to_cart_plus_sign).setVisibility(View.VISIBLE);
+                    itemView.findViewById(R.id.add_to_cart_image).setVisibility(View.VISIBLE);
+                    itemView.findViewById(R.id.green_cart).setVisibility(View.INVISIBLE);
+
+                    if(recyclerViewInterface!=null) {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onRemoveCartClick(pos);
+                        }
+                    }
+                }
+            });
         }
 
 
 
-    }
+        }
 
     public List<ProductList> getAll(){ return  listProducts;}
 

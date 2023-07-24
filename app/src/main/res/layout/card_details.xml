@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/four_blue"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/white"
+        android:id="@+id/card_number_input"
+        android:hint="Card Number"
+        android:inputType="number"
+        android:padding="7dp"
+        android:maxLength="16"
+        android:maxLines="1"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="65dp"
+        android:background="@color/white"
+        android:hint="Holder Name"
+        android:inputType="text"
+        android:padding="7dp"
+        android:id="@+id/card_holder_input"
+        android:maxLength="20"
+        android:maxLines="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="22dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:text="Expiry Date"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/expiry_date_month_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="5dp"
+                    android:gravity="center_vertical"
+                    android:padding="2dp"
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="49sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/expiry_date_year_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:paddingHorizontal="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:text="CVV"
+                android:textColor="@color/white"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cvv_input"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:hint="cvv"
+                android:inputType="number"
+                android:padding="10dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    
+</LinearLayout>

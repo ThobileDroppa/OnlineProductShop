@@ -58,13 +58,7 @@ public class ProductView extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        /*String titles = i.getStringExtra("NAME");
-        String descs = i.getStringExtra("DESC");
-        String prices = i.getStringExtra("PRICE");
-        String qty = i.getStringExtra("QUANTITY");
-        String imgs = i.getStringExtra("IMAGE");
-        String jObject = i.getStringExtra("OBJECT");
-*/
+
         ProductList product1 = i.getParcelableExtra("Product");
 
 
